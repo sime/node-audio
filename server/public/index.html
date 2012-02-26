@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/app/app.css" rel="stylesheet">
+  </head>
+<body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+
+        <a class="brand" href="#">node-audio</a>
+        <div id="filter_wrapper"></div>
+        <div id="playlist_wrapper"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row-fluid">
+      <div id="body" class="span12"></div>
+    </div>
+  </div>
+
+  <script src="/vendor/jquery-1.7.1.min.js"></script>
+  <script src="/vendor/json2.js"></script>
+  <script src="/vendor/underscore.js"></script>
+  <script src="/vendor/backbone.js"></script>
+  <script src="/vendor/buzz.js"></script>
+  <script src="/vendor/coffee-script.js"></script>
+  <script src="/app/app.coffee" type="text/coffeescript"></script>
+  <script src="/app/models_and_collections.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/artists.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/filter.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/play.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/playlist.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/track.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/tracks.coffee" type="text/coffeescript"></script>
+  <script src="/app/router.coffee" type="text/coffeescript"></script>
+
+</body>
+</html>

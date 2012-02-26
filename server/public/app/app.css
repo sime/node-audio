@@ -1,0 +1,57 @@
+body {
+  margin-top: 60px;
+}
+.table td {
+  line-height: 29px;
+}
+#playlist {
+  line-height: 40px;
+}
+#playlist .current {
+  float: right;
+  margin-right: 25px;
+  color: #fff;
+  font-size: 15px;
+}
+#playlist .current .timer {
+  color: #fff;
+}
+#playlist .current span {
+  color: #666;
+}
+#playlist .controls {
+  float: right;
+}
+#playlist .controls i {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+#playlist .controls i:hover {
+  border-bottom: 2px solid #FFF;
+}
+
+#artists li {
+  display: block;
+  float:  left;
+  width: 20%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #DDD;
+  text-transform: capitalize;
+  padding-left: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#artists li:hover {
+  color: #999;
+}
+
+audio {
+  float: right;
+  padding-top: 4px;
+}
+ #controls {
+  float: right;
+ }

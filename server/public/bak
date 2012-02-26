@@ -1,0 +1,9 @@
+  <script src="/vendor/jquery-1.6.1.min.js"></script>
+  <script src="/vendor/ember-0.9.5.js"></script>
+  <script src="/vendor/ember-rest.js"></script>
+  <script src="/vendor/coffee-script.js"></script>
+
+  <script src="/app/app.coffee" type="text/coffeescript"></script>
+  <script src="/app/models/music.coffee" type="text/coffeescript"></script>
+  <script src="/app/controllers/musics.coffee" type="text/coffeescript"></script>
+  <script src="/app/views/musics/list.coffee" type="text/coffeescript"></script>
