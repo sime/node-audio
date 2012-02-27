@@ -17,6 +17,9 @@ class app.collections.Playlist extends Backbone.Collection
   current: ->
     @current_pos ||= @first()
 
+  setCurrent: (id) ->
+    @current_pos = @get(id)
+
   next: ->
     index = @indexOf(@current()) + 1
     if index < @length
@@ -24,6 +27,9 @@ class app.collections.Playlist extends Backbone.Collection
     else
       @current_pos = @at 0
 
+  clear: ->
+    @current_pos = undefined
+    @reset()
 
 
 class app.collections.Tracks extends Backbone.Collection

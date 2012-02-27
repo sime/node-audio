@@ -3,10 +3,12 @@ class app.views.Playlist extends Backbone.View
   id: 'playlist'
 
   events:
-    "click .next":  "next"
-    "click .prev":  "prev"
-    "click .play":  "play"
-    "click .stop":  "stop"
+    "click .next":              "next"
+    "click .prev":              "prev"
+    "click .play":              "play"
+    "click .stop":              "stop"
+    "click .clear_playlist":    "clearPlaylist"
+    "click .set_current_track": "setCurrentTrack"
 
   next: (event) ->
     app.playlist.next()
@@ -29,38 +31,68 @@ class app.views.Playlist extends Backbone.View
 
     @render()
 
-  stop: ->
+  stop: (event) ->
     @audio.stop() if @audio
     @audio = undefined
     @render()
 
+  clearPlaylist: (event) ->
+    app.playlist.clear()
+    @stop()
+
+  setCurrentTrack: (event) ->
+    app.playlist.setCurrent event.currentTarget.dataset.id
+    @stop()
+    @play()
 
   addedToPlaylist: =>
     @play() unless @audio
+    @render()
 
   initialize: ->
     app.playlist.on "add", @addedToPlaylist
 
   render: =>
-    @$el.html _.template @template, track: app.playlist.current(), audio: @audio
+    if app.playlist.length > 0
+      @$el.html _.template @template, playlist: app.playlist, audio: @audio
+    else
+      @$el.html ''
 
   template: """
     <div class="controls">
       <i class="prev icon-step-backward icon-white"></i>
-
       <% if(audio) { %>
         <i class="stop icon-stop icon-white"></i>
       <% } else { %>
         <i class="play icon-play icon-white"></i>
       <% } %>
-
       <i class="next icon-step-forward icon-white"></i>
     </div>
 
-    <span class="current">
-      <%= track.get('title') %> <span>/</span>
-      <%= track.get('album') %> <span>/</span>
-      <%= track.get('artist') %> <span>/</span>
-      <span class="timer">00:00</span>
-    </span>
+    <ul class="nav">
+      <li class="dropdown">
+
+        <a class="dropdown-toggle current_track" data-toggle="dropdown">
+          <%= playlist.current().get('artist') %> <span>▸</span>
+          <%= playlist.current().get('album') %> <span>▸</span>
+          <%= playlist.current().get('title') %> <span>▸</span>
+          <span class="timer">00:00</span>
+        </a>
+
+        <ul class="dropdown-menu playlist">
+          <% playlist.each(function(track){ %>
+            <li class="set_current_track" data-id="<%= track.id %>">
+              <a>
+              <%= track.get('artist') %> <span>▸</span>
+              <%= track.get('album') %> <span>▸</span>
+              <%= track.get('title') %>
+              </a>
+            </li>
+          <% }) %>
+          <li class="divider"></li>
+          <li><a class="clear_playlist">Clear</a></li>
+        </ul>
+
+      </li>
+    </ul>
   """

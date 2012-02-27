@@ -1,23 +1,33 @@
 body {
   margin-top: 60px;
 }
-.table td {
+#tracks td {
   line-height: 29px;
+  cursor: pointer;
+}
+#tracks td:hover {
+  text-decoration: underline;
 }
 #playlist {
   line-height: 40px;
 }
-#playlist .current {
+#playlist .nav {
   float: right;
   margin-right: 25px;
   color: #fff;
   font-size: 15px;
 }
-#playlist .current .timer {
-  color: #fff;
+#playlist .current_track {
+  cursor: pointer;
 }
-#playlist .current span {
+#playlist .current_track span {
   color: #666;
+}
+#playlist .playlist span {
+  color: #999;
+}
+#playlist .playlist li {
+  cursor: pointer;
 }
 #playlist .controls {
   float: right;
